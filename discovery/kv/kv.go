@@ -96,6 +96,7 @@ func (s *Discovery) Initialize(uris string, heartbeat time.Duration, ttl time.Du
 		log.Debug("Initializing discovery without TLS")
 	}
 
+	log.Infof("KV CONFIG %#v", config)
 	// Creates a new store, will ignore options given
 	// if not supported by the chosen store
 	s.store, err = libkv.NewStore(s.backend, addrs, config)
