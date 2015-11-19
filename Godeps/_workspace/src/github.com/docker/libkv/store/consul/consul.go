@@ -1,6 +1,7 @@
 package consul
 
 import (
+	"fmt"
 	"crypto/tls"
 	"errors"
 	"net/http"
@@ -59,6 +60,7 @@ func New(endpoints []string, options *store.Config) (store.Store, error) {
 	config.HttpClient = http.DefaultClient
 	config.Address = endpoints[0]
 	config.Scheme = "http"
+	fmt.Printf("Default config %#v", config)
 
 	// Set options
 	if options != nil {
