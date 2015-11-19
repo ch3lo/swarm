@@ -41,6 +41,8 @@ func Init() {
 	consul.Register()
 	etcd.Register()
 
+	log.Infof("SERVICES REGISTERED")
+
 	// Register to internal Swarm discovery service
 	discovery.Register("zk", &Discovery{backend: store.ZK})
 	discovery.Register("consul", &Discovery{backend: store.CONSUL})

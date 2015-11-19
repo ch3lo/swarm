@@ -116,6 +116,7 @@ func Register(scheme string, d Discovery) error {
 		return fmt.Errorf("scheme already registered %s", scheme)
 	}
 	log.WithField("name", scheme).Debug("Registering discovery service")
+	log.Infof("Registering discovery service")
 	discoveries[scheme] = d
 
 	return nil
