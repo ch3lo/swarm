@@ -1,9 +1,9 @@
 package consul
 
 import (
-	"fmt"
 	"crypto/tls"
 	"errors"
+	"fmt"
 	"net/http"
 	"strings"
 	"sync"
@@ -43,6 +43,7 @@ type consulLock struct {
 // Register registers consul to libkv
 func Register() {
 	libkv.AddStore(store.CONSUL, New)
+	fmt.Printf("NEW CONSUL")
 }
 
 // New creates a new Consul client given a list
