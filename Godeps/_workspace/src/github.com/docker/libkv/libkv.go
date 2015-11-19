@@ -89,6 +89,7 @@ var (
 // NewStore creates a an instance of store
 func NewStore(backend store.Backend, addrs []string, options *store.Config) (store.Store, error) {
 	if init, exists := initializers[backend]; exists {
+		fmt.Println("INIT SERVICE")
 		return init(addrs, options)
 	}
 

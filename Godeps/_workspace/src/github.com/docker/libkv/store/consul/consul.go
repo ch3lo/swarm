@@ -49,6 +49,7 @@ func Register() {
 // New creates a new Consul client given a list
 // of endpoints and optional tls config
 func New(endpoints []string, options *store.Config) (store.Store, error) {
+	fmt.Printf("EN NEW")
 	if len(endpoints) > 1 {
 		return nil, ErrMultipleEndpointsUnsupported
 	}
