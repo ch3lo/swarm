@@ -43,13 +43,13 @@ type consulLock struct {
 // Register registers consul to libkv
 func Register() {
 	libkv.AddStore(store.CONSUL, New)
-	fmt.Printf("NEW CONSUL")
+	fmt.Printf("NEW CONSUL\n")
 }
 
 // New creates a new Consul client given a list
 // of endpoints and optional tls config
 func New(endpoints []string, options *store.Config) (store.Store, error) {
-	fmt.Printf("EN NEW")
+	fmt.Printf("EN NEW\n")
 	if len(endpoints) > 1 {
 		return nil, ErrMultipleEndpointsUnsupported
 	}
@@ -62,7 +62,7 @@ func New(endpoints []string, options *store.Config) (store.Store, error) {
 	config.HttpClient = http.DefaultClient
 	config.Address = endpoints[0]
 	config.Scheme = "http"
-	fmt.Printf("Default config %#v", config)
+	fmt.Printf("Default config %#v\n", config)
 
 	// Set options
 	if options != nil {
